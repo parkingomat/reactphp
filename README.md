@@ -5,7 +5,12 @@ app.parkingomat.com
 
 ## PHP
 
-    apt install php
+    apt install -y php
+
+## Composer
+
+    sudo apt install -y composer
+
 
 ## [Composer](https://getcomposer.org/download/)
 
@@ -19,7 +24,7 @@ app.parkingomat.com
 
 ## npm
 
-    apt install npm
+    apt install -y npm
 
 
 ## kill proces
