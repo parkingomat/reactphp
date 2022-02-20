@@ -21,6 +21,7 @@ app.parkingomat.com
 ## kill proces
 
     npx kill-port 8080
+    npx kill-port 80
     
     
 ## Install [reactphp/reactphp: Event-driven, non-blocking I/O with PHP.](https://github.com/reactphp/reactphp)
@@ -39,13 +40,18 @@ quick protoyping only: install all stable components
 web server written in ReactPHP responds with "Hello World!" for every request.
 
 
-    $http = new React\Http\HttpServer(function (Psr\Http\Message\ServerRequestInterface $request) {
-    return React\Http\Message\Response::plaintext(
-        "Hello World!\n"
-    );
-    });
+        <?php
 
-    $socket = new React\Socket\SocketServer('127.0.0.1:8080');
-    $http->listen($socket);
+        require __DIR__ . '/vendor/autoload.php';
 
-    echo "Server running at http://127.0.0.1:8080" . PHP_EOL;
+        $http = new React\Http\HttpServer(function (Psr\Http\Message\ServerRequestInterface $request) {
+            return React\Http\Message\Response::plaintext(
+                "Hello World!\n"
+            );
+        });
+
+        $socket = new React\Socket\SocketServer('0.0.0.0:80');
+        $http->listen($socket);
+
+        echo "Server running at http://localhost:80" . PHP_EOL;
+
